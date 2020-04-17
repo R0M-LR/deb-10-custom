@@ -41,3 +41,25 @@ Launch at each authentication
 ```bash
 echo 'neofetch --off' > /etc/profile.d/Z2-neofetch.sh
 ```
+
+## Autologin
+Edit your /etc/systemd/logind.conf , change #NAutoVTs=6 to NAutoVTs=1
+```bash
+sed -i '/NAutoVTs=/c\NAutoVTs=\"1\"' /etc/systemd/logind.conf
+sed -i '/NAutoVTs/s/^#//g'
+```
+```bash
+systemctl edit getty@tty1
+```
+Paste the following lines
+```bash
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty --autologin root --noclear %I 38400 linux
+```
+Enable and reboot for test
+```bash
+systemctl enable getty@tty1.service
+reboot
+```
+
