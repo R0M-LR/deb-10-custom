@@ -31,7 +31,7 @@ apt update && apt install neofetch git -yy
 Get the config file
 ```bash
 mkdir -p $HOME/.config/neofetch/
-git clone https://github.com/r0m-dev/custom-debian10.git $HOME/.config/neofetch/
+git clone https://github.com/R0M-LR/deb-10-custom.git $HOME/.config/neofetch/
 ```
 To test
 ```bash
